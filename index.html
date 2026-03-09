@@ -1,19 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>My First Website</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Create Your Own Perfume</title>
+<link rel="stylesheet" href="css/style.css">
+<script src="js/script.js" defer></script>
 </head>
 
 <body>
 
-  <h1>Hello World 🌎</h1>
-  <p>This is my first website.</p>
+<section class="hero">
 
-  <button onclick="sayHello()">Click me</button>
+    <!-- Large center bottle behind everything -->
+    <img src="Assets/Bottle 1.png" class="hero-background-bottle" alt="Background Bottle">
 
-  <script src="script.js"></script>
+    <!-- Corner Borders -->
+    <img src="Assets/Border left.png" class="border-bottom-left" alt="Bottom Left Border">
+    <img src="Assets/Border right.png" class="border-top-right" alt="Top Right Border">
+
+    <!-- Hero Title -->
+    <img src="Assets/Create your own perfume.png" class="title" alt="Create Your Own Perfume">
+
+    <!-- Hero Buttons -->
+    <div class="hero-actions">
+        <a href="index.html"><img src="Assets/Home.png" alt="Home" class="btn home-btn"></a>
+        <a href="make.html"><img src="Assets/Play.png" alt="Play" class="btn home-btn"></a>
+    </div>
+
+    <!-- Potion Bottle floating in the middle -->
+    <img src="Assets/potion-bottle 1.png" class="potion-bottle" alt="Potion Bottle">
+
+</section>
+
+<!-- Background music (hidden) -->
+<audio id="background-music" src="Assets/jazz.mp3" loop></audio>
 
 </body>
 </html>

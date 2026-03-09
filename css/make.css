@@ -1,0 +1,279 @@
+/* ===== make.css ===== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+/* Font */
+@font-face{
+    font-family:'Imbue';
+    src:url('../Assets/Font/Imbue-VariableFont_opsz,wght.ttf') format('truetype');
+    font-weight:100 900;
+}
+
+body{
+    background:linear-gradient(180deg,#5765FF 0%,#8A8EFF 100%);
+    font-family:"Imbue", serif;
+    color:white;
+    text-transform:uppercase;
+    overflow-x:hidden;
+}
+
+/* ================= NAV ================= */
+
+.top-nav{
+    position:fixed;
+    top:12px;   /* moved buttons up */
+    left:20px;
+    z-index:20;
+    display:flex;
+    gap:15px;
+}
+
+.top-nav img{
+    width:60px;
+    cursor:pointer;
+}
+
+/* ================= BACKGROUND BOTTLE ================= */
+
+.hero-background-bottle{
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+    width:850px;
+    z-index:0;
+    pointer-events:none;
+}
+
+/* ================= HERO SECTION ================= */
+
+.hero-section{
+
+    width:100%;
+
+    display:flex;
+    flex-direction:column;
+
+    align-items:center;
+    justify-content:flex-start;
+
+    text-align:center;
+
+    position:relative;
+    z-index:2;
+
+    margin-top:140px; /* slightly higher */
+}
+
+/* ================= INSTRUCTIONS ================= */
+
+.make-instructions img{
+    width:420px;
+    display:block;
+    margin:0 auto 18px auto;
+}
+
+/* ================= POTION ================= */
+
+.potion-container{
+
+    position:relative;
+
+    width:220px;
+    height:330px;
+
+    margin:5px auto 8px auto; /* reduced spacing */
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+/* Bottle */
+
+.potion-bottle{
+    width:100%;
+    pointer-events:none;
+    z-index:3;
+
+    animation:float 4s ease-in-out infinite;
+}
+
+/* Floating animation */
+
+@keyframes float{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-10px);}
+}
+
+/* Liquid */
+
+.potion-fill{
+
+    position:absolute;
+
+    bottom:28px;
+    left:50%;
+    transform:translateX(-50%);
+
+    width:58%;
+    height:0%;
+
+    max-height:190px;
+
+    overflow:hidden;
+
+    z-index:2;
+
+    transition:height .35s ease;
+}
+
+.potion-fill::before{
+
+    content:"";
+
+    position:absolute;
+    bottom:0;
+    left:0;
+
+    width:100%;
+    height:100%;
+
+    background:rgba(255,215,0,.65);
+
+    border-radius:50% 50% 0 0 / 18% 18% 0 0;
+}
+
+/* ================= CLICK DRAG ================= */
+
+.make-click-drag{
+    width:100%;
+    text-align:center;
+}
+
+.make-click-drag img{
+    width:420px;
+    display:block;
+    margin:0 auto; /* removed extra spacing */
+}
+
+/* ================= SCENT GRID ================= */
+
+.make-container{
+
+    width:100%;
+    padding:35px 40px 80px 40px;
+
+    display:flex;
+    justify-content:center;
+
+    position:relative;
+    z-index:3;
+}
+
+.make-grid{
+
+    max-width:900px;
+
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+
+    gap:20px;
+}
+
+.make-grid img{
+
+    width:110px;
+    height:110px;
+
+    object-fit:cover;
+
+    border-radius:12px;
+
+    cursor:grab;
+
+    box-shadow:0 4px 10px rgba(0,0,0,.25);
+
+    transition:.2s;
+}
+
+.make-grid img:hover{
+    transform:scale(1.06);
+}
+
+.make-grid img.dragging{
+    opacity:.5;
+}
+
+.make-grid img.selected{
+    outline:4px solid gold;
+}
+
+.make-grid img.flash{
+    box-shadow:0 0 0 4px red;
+}
+
+/* ================= BORDERS ================= */
+
+.border-bottom-left{
+    position:absolute;
+    bottom:0;
+    left:0;
+    width:260px;
+    z-index:1;
+    pointer-events:none;
+}
+
+.border-top-right{
+    position:absolute;
+    top:0;
+    right:0;
+    width:260px;
+    z-index:1;
+    pointer-events:none;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:900px){
+
+.hero-background-bottle{
+    width:650px;
+}
+
+.potion-container{
+    width:180px;
+    height:260px;
+}
+
+.potion-container{
+    padding-top:40px;
+    padding-bottom:40px;
+}
+
+.make-grid{
+    grid-template-columns:repeat(4,1fr);
+}
+
+.make-grid img{
+    width:85px;
+    height:85px;
+}
+
+}
+
+@media(max-width:600px){
+
+.hero-background-bottle{
+    width:500px;
+}
+
+.make-grid{
+    grid-template-columns:repeat(3,1fr);
+}
+
+}

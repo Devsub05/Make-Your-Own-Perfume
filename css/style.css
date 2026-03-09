@@ -1,0 +1,287 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+/* Font */
+@font-face{
+    font-family: 'Imbue';
+    src: url('../Assets/Font/Imbue-VariableFont_opsz,wght.ttf') format('truetype');
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+body{
+    background: linear-gradient(180deg, #5765FF 0%, #8A8EFF 100%);
+    font-family:"Imbue", serif;
+    color:#ffffff;
+    text-transform:uppercase;
+    overflow-x:hidden;
+}
+
+/* Page Titles */
+.page-title {
+    text-align:center;
+    margin-bottom:24px;
+    font-size: clamp(24px, 4vw, 48px);
+    line-height:1.1;
+}
+
+/* HERO SECTION */
+.hero {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    overflow: hidden;
+    padding-top: 80px;
+}
+
+/* Large background bottle behind everything (make + index pages) */
+.hero-background-bottle {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 939px; /* Figma size */
+    z-index: 0;  /* behind everything */
+    pointer-events: none;
+}
+
+.hero .title {
+    width: 560px;
+    max-width: 85%;
+    margin-bottom: 0;
+    z-index: 3;
+    text-align: center;
+    text-shadow:0 4px 8px rgba(0,0,0,0.3);
+    position: relative;
+}
+
+.hero-content{
+    text-align:center;
+    z-index:3;
+    position:relative;
+}
+
+.potion-bottle {
+    position: absolute;
+    left: 50%;
+    top: 62%; /* lowered but still centered */
+    transform: translate(-50%, -50%);
+    width: 420px;
+    z-index: 2; /* above background bottle */
+    pointer-events: none;
+    animation: float 4s ease-in-out infinite;
+}
+
+/* Floating animation */
+@keyframes float {
+    0%,100% { transform: translate(-50%, -50%) translateY(0px); }
+    50% { transform: translate(-50%, -50%) translateY(-12px); }
+}
+
+/* Borders positioned in corners */
+.border-bottom-left {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 260px;
+    z-index: 1;
+}
+
+.border-top-right {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 260px;
+    z-index: 1;
+}
+
+/* Buttons */
+.btn{
+    display:inline-block;
+    cursor:pointer;
+    transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.hero-actions {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    width: 100%;
+    max-width: 800px;
+    display: flex;
+    justify-content: space-between;
+    transform: translateX(-50%);
+    z-index: 3;
+}
+
+.home-btn {
+    width: 70px;
+}
+.play-btn {
+    width: 70px;
+}
+
+.hero-actions .btn:hover{
+    transform: scale(1.05);
+    filter: brightness(1.1);
+}
+
+/* Top Nav */
+.top-nav{
+    position:fixed;
+    left:20px;
+    top:20px;
+    z-index:4;
+}
+.top-nav img{ 
+    filter:brightness(1.05); 
+    width:60px; 
+    margin-right:10px; 
+}
+
+/* Make Page */
+.make-container{
+    padding:40px;
+    color:#fff;
+    min-height:100vh;
+    position:relative;
+    z-index:3;
+}
+
+/* Potion fill overlay (make page only) */
+.potion-fill {
+    position: absolute;
+    left: 50%;
+    top: 62%; /* match potion-bottle */
+    transform: translate(-50%, -50%);
+    width: 420px; /* match potion-bottle */
+    height: 0; /* will grow as users drag scents */
+    background: linear-gradient(to top, rgba(255, 192, 203, 0.6), rgba(255, 105, 180, 0.8));
+    border-radius: 50% 50% 45% 45%;
+    z-index: 2;
+    pointer-events: none;
+    transition: height 0.5s ease;
+}
+
+.make-instructions img{
+    display:block;
+    margin:0 auto 20px auto;
+    max-width:90%;
+}
+
+.make-grid{
+    display: flex; /* flex for drag flow */
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    max-width:900px;
+    margin:auto;
+    padding-bottom: 200px; /* space for potion area */
+}
+
+.make-grid img{
+    width:100%;
+    height:120px;
+    border-radius:12px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.25);
+    object-fit:cover;
+    transition: transform .2s ease, box-shadow .2s ease;
+    cursor:pointer;
+}
+
+.make-grid img:hover{
+    transform:scale(1.08);
+    box-shadow:0 8px 20px rgba(0,0,0,0.35);
+}
+
+.make-grid img.selected{
+    outline:4px solid rgba(255,215,0,0.9);
+    transform:translateY(-6px) scale(1.05);
+}
+
+.make-grid img.flash{
+    box-shadow:0 0 0 4px rgba(255,90,90,0.9);
+}
+
+/* Dragging scent style */
+.make-grid img.dragging {
+    opacity: 0.5;
+    transform: scale(1.1);
+}
+
+/* X and Check buttons below potion */
+.make-actions {
+    position: absolute;
+    bottom: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 30px;
+    z-index: 3;
+}
+
+.make-actions img {
+    width: 70px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.make-actions img:hover {
+    transform: scale(1.1);
+}
+
+/* Recommendations Page */
+.rec-container{
+    padding:40px;
+    min-height:100vh;
+    text-align:center;
+}
+
+.rec-grid{
+    display:flex;
+    gap:30px;
+    flex-wrap:wrap;
+    justify-content:center;
+    align-items:center;
+}
+
+.rec-grid img{
+    width:140px;
+    border-radius:12px;
+    box-shadow:0 6px 16px rgba(0,0,0,0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.rec-grid img:hover{
+    transform:scale(1.05);
+    box-shadow:0 8px 20px rgba(0,0,0,0.35);
+}
+
+/* Responsive */
+@media (max-width:1024px){
+    .make-grid{ grid-template-columns: repeat(3, 1fr); }
+    .hero .title{ width:400px; }
+    .potion-bottle{ width:320px; }
+    .hero-background-bottle{ width:700px; }
+}
+
+@media (max-width:600px){
+    .make-grid{ grid-template-columns: repeat(2, 1fr); }
+    .hero .title{ width:280px; }
+    .hero-actions{ gap:20px; bottom:40px; }
+    .potion-bottle{ width:250px; }
+    .hero-background-bottle{ width:500px; }
+}
+
+@media (min-width:1440px){
+    .make-grid { gap: 28px; max-width: 1100px; }
+    .hero .title { width:600px; }
+    .hero-background-bottle{ width:939px; }
+}
