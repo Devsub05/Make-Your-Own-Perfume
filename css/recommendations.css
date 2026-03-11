@@ -1,0 +1,197 @@
+/* ===== recommendations.css ===== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Imbue', serif;
+    background: linear-gradient(180deg, #5765FF 0%, #8A8EFF 100%);
+    color: #fff;
+    text-align: center;
+    overflow-x: hidden;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+/* ===== NAVIGATION BUTTONS ===== */
+
+.home-button {
+    position: fixed;
+    bottom: 40px;
+    left: 40px;
+    z-index: 5;
+}
+
+.home-button img {
+    width: 70px;
+    cursor: pointer;
+}
+
+.refresh-button {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    z-index: 5;
+}
+
+.refresh-button img {
+    width: 70px;
+    cursor: pointer;
+}
+
+/* Background Bottle */
+
+.hero-background-bottle {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 900px;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Corner Borders */
+
+.border-bottom-left {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 260px;
+    z-index: 2;
+}
+
+.border-top-right {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 260px;
+    z-index: 2;
+}
+
+/* Page Title */
+
+.recommendations-title {
+    font-family: 'Imbue', serif;
+    text-transform: uppercase;
+    font-size: 3rem;
+    font-weight: 700;
+    margin-top: 40px;
+    z-index: 2;
+    position: relative;
+}
+
+/* Recommendations Cards Container */
+
+.recommendations-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    margin-top: 60px;
+    z-index: 2;
+    position: relative;
+    flex-wrap: wrap;
+    min-height: calc(100vh - 120px);
+}
+
+/* Individual Perfume Card */
+
+.recommendation-card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 20px;
+    width: 280px;
+    text-align: center;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+}
+
+.recommendation-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Perfume Title */
+
+.recommendation-card h2 {
+    margin-bottom: 10px;
+    font-size: 1.3rem;
+}
+
+/* Perfume Image */
+
+.perfume-image {
+    width: 140px;
+    height: auto;
+    margin: 10px auto 15px auto;
+    display: block;
+    object-fit: contain;
+}
+
+/* Description */
+
+.recommendation-card .description {
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+/* Price Tier */
+
+.recommendation-card .price {
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #FFD700;
+    margin-top: 5px;
+}
+
+/* Price Explanation */
+
+.recommendation-card .price-info {
+    font-size: 1rem;
+    color: #FFD700;
+    margin-top: 2px;
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media(max-width: 1024px){
+
+    .hero-background-bottle {
+        width: 700px;
+    }
+
+    .recommendations-container {
+        gap: 30px;
+        min-height: calc(100vh - 100px);
+    }
+
+}
+
+@media(max-width: 600px){
+
+    .hero-background-bottle {
+        width: 500px;
+    }
+
+    .recommendations-container {
+        flex-direction: column;
+        gap: 20px;
+        min-height: calc(100vh - 80px);
+    }
+
+    .recommendation-card {
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    .perfume-image {
+        width: 120px;
+    }
+
+}

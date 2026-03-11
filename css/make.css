@@ -277,3 +277,24 @@ body{
 }
 
 }
+
+/* ===== DROPLET SPLASH ===== */
+.splash {
+    position: absolute;
+    bottom: 28px; /* aligns with top of potion fill */
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    transform: translateX(-50%) scale(0);
+    animation: splashAnim 0.4s forwards;
+    pointer-events: none;
+    z-index: 5;
+}
+
+@keyframes splashAnim {
+    0% { transform: translateX(-50%) scale(0); opacity: 1; }
+    50% { transform: translateX(-50%) scale(1.2); opacity: 0.8; }
+    100% { transform: translateX(-50%) scale(0.6); opacity: 0; }
+}
